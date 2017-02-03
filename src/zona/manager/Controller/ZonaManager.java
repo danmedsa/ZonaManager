@@ -5,6 +5,8 @@
  */
 package zona.manager.Controller;
 
+import zona.manager.View.MainGUI;
+
 /**
  *
  * @author DanielMedina
@@ -16,6 +18,7 @@ public class ZonaManager {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        new MainGUI().setVisible(true);
     }
     
 }

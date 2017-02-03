@@ -5,8 +5,14 @@
  */
 package zona.manager.View;
 
+import java.awt.Dimension;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.DefaultListModel;
+import javax.swing.JList;
+import javax.swing.JScrollPane;
+import javax.swing.ListModel;
+import javax.swing.ListSelectionModel;
 import zona.manager.Model.Client;
 
 /**
@@ -18,8 +24,17 @@ public class ManageClientsGUI extends javax.swing.JFrame {
     /**
      * Creates new form ManageClientsGUI
      */
-    public ManageClientsGUI() {
+    DefaultListModel clients;
+    public ManageClientsGUI() {        
+        
+        clients = new DefaultListModel();
+        //TODO Firebase Request
+        clients.addElement("Monica");
+               
         initComponents();
+
+        clientList.setModel(clients);
+        
     }
 
     /**
@@ -40,11 +55,7 @@ public class ManageClientsGUI extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        clientList.setModel(new javax.swing.AbstractListModel() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
-        });
+        clientList.setModel(clients);
         ClientScrollPane.setViewportView(clientList);
 
         cancel_btn.setText("Cancelar");
@@ -57,6 +68,11 @@ public class ManageClientsGUI extends javax.swing.JFrame {
         remove_btn.setText("Eliminar");
 
         add_btn.setText("Agregar");
+        add_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                add_btnActionPerformed(evt);
+            }
+        });
 
         edit_btn.setText("Editar");
 
@@ -100,42 +116,11 @@ public class ManageClientsGUI extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_cancel_btnActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ManageClientsGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ManageClientsGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ManageClientsGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ManageClientsGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new ManageClientsGUI().setVisible(true);
-            }
-        });
-        
-       
-    }
+    private void add_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_btnActionPerformed
+        // TODO add your handling code here:
+        new AddClient().setVisible(true);
+    }//GEN-LAST:event_add_btnActionPerformed
+    
     
     void fill_list(){
         

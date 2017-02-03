@@ -11,9 +11,10 @@ package zona.manager.View;
  */
 public class MainGUI extends javax.swing.JFrame {
 
-    /**
+    /*
      * Creates new form MainGUI
      */
+    
     public MainGUI() {
         initComponents();
     }

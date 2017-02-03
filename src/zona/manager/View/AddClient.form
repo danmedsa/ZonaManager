@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+  <NonVisualComponents>
+    <Component class="javax.swing.ButtonGroup" name="buttonGroup1">
+    </Component>
+  </NonVisualComponents>
+  <Properties>
+    <Property name="defaultCloseOperation" type="int" value="3"/>
+  </Properties>
+  <SyntheticProperties>
+    <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
+    <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
+  </SyntheticProperties>
+  <AuxValues>
+    <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_generateFQN" type="java.lang.Boolean" value="true"/>
+    <AuxValue name="FormSettings_generateMnemonicsCode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_i18nAutoMode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_layoutCodeTarget" type="java.lang.Integer" value="1"/>
+    <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
+  </AuxValues>
+
+  <Layout>
+    <DimensionLayout dim="0">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="1" attributes="0">
+                  <Component id="Comments_lbl" min="-2" max="-2" attributes="0"/>
+                  <Component id="Lunch_lbl" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
+                  <Component id="Description_lbl" min="-2" max="-2" attributes="0"/>
+                  <Component id="Neighborhood_lbl" min="-2" max="-2" attributes="0"/>
+                  <Component id="Street_lbl" min="-2" max="-2" attributes="0"/>
+                  <Component id="email_lbl" min="-2" max="-2" attributes="0"/>
+                  <Component id="Phone_lbl" min="-2" max="-2" attributes="0"/>
+                  <Component id="Name_lbl" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="Name_txt" max="32767" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <Component id="Phone_txt" max="32767" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="Cellphone_lbl" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="Cellphone_txt" min="-2" pref="137" max="-2" attributes="0"/>
+                  </Group>
+                  <Component id="email_txt" max="32767" attributes="0"/>
+                  <Component id="Street_txt" max="32767" attributes="0"/>
+                  <Component id="Neighborhood_txt" alignment="0" max="32767" attributes="0"/>
+                  <Component id="Description_SP" max="32767" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
+                              <Component id="Number_lbl" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="Number_txt" min="-2" pref="69" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="Interior_lbl" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="Interior_txt" min="-2" pref="71" max="-2" attributes="0"/>
+                          </Group>
+                          <Component id="JoinDate_txt" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="Lunch_txt" min="-2" pref="41" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
+                      <Component id="Breakfast_lbl" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="Breakfast_txt" min="-2" pref="47" max="-2" attributes="0"/>
+                      <EmptySpace pref="30" max="32767" attributes="0"/>
+                      <Component id="Dinner_lbl" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="Dinner_txt" min="-2" pref="44" max="-2" attributes="0"/>
+                  </Group>
+                  <Component id="Comments_SP" max="32767" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="76" max="-2" attributes="0"/>
+          </Group>
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace max="32767" attributes="0"/>
+              <Component id="Save_btn" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Component id="Cancel_btn" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+    <DimensionLayout dim="1">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="1" attributes="0">
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="Name_lbl" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="Name_txt" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="Phone_lbl" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="Phone_txt" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="Cellphone_lbl" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="Cellphone_txt" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="email_lbl" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Component id="email_txt" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="Street_txt" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="Street_lbl" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="Number_lbl" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="Number_txt" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="Interior_lbl" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="Interior_txt" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="Neighborhood_lbl" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="Neighborhood_txt" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="Description_lbl" min="-2" max="-2" attributes="0"/>
+                  <Component id="Description_SP" min="-2" pref="58" max="-2" attributes="0"/>
+              </Group>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
+                      <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="JoinDate_txt" min="-2" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="Lunch_lbl" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="Lunch_txt" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="Breakfast_lbl" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="Breakfast_txt" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="Dinner_lbl" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="Dinner_txt" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="Comments_lbl" min="-2" max="-2" attributes="0"/>
+                  <Component id="Comments_SP" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="Cancel_btn" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="Save_btn" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+          </Group>
+      </Group>
+    </DimensionLayout>
+  </Layout>
+  <SubComponents>
+    <Component class="javax.swing.JLabel" name="Name_lbl">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Nombre:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="Name_txt">
+    </Component>
+    <Component class="javax.swing.JLabel" name="Phone_lbl">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Tel:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="Phone_txt">
+    </Component>
+    <Component class="javax.swing.JLabel" name="Cellphone_lbl">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Cel:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="Cellphone_txt">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Cellphone_txtActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="email_lbl">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="E-Mail:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="email_txt">
+    </Component>
+    <Component class="javax.swing.JLabel" name="Street_lbl">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Calle:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="Street_txt">
+    </Component>
+    <Component class="javax.swing.JLabel" name="Number_lbl">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Numero:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="Number_txt">
+    </Component>
+    <Component class="javax.swing.JLabel" name="Interior_lbl">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Interior:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="Interior_txt">
+    </Component>
+    <Component class="javax.swing.JLabel" name="Neighborhood_lbl">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Colonia:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="Neighborhood_txt">
+    </Component>
+    <Component class="javax.swing.JLabel" name="Description_lbl">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Descripcion:"/>
+      </Properties>
+    </Component>
+    <Container class="javax.swing.JScrollPane" name="Description_SP">
+      <AuxValues>
+        <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+      </AuxValues>
+
+      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+      <SubComponents>
+        <Component class="javax.swing.JTextArea" name="Description_txt">
+          <Properties>
+            <Property name="columns" type="int" value="20"/>
+            <Property name="rows" type="int" value="3"/>
+          </Properties>
+        </Component>
+      </SubComponents>
+    </Container>
+    <Component class="javax.swing.JLabel" name="jLabel10">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="JoinDate_lbl"/>
+      </Properties>
+    </Component>
+    <Component class="com.toedter.calendar.JDateChooser" name="JoinDate_txt">
+    </Component>
+    <Component class="javax.swing.JLabel" name="Lunch_lbl">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Comida:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="Lunch_txt">
+    </Component>
+    <Component class="javax.swing.JLabel" name="Breakfast_lbl">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Refrigerio:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="Breakfast_txt">
+    </Component>
+    <Component class="javax.swing.JLabel" name="Dinner_lbl">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Cena:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="Dinner_txt">
+    </Component>
+    <Component class="javax.swing.JLabel" name="Comments_lbl">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Comentarios:"/>
+      </Properties>
+    </Component>
+    <Container class="javax.swing.JScrollPane" name="Comments_SP">
+      <AuxValues>
+        <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+      </AuxValues>
+
+      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+      <SubComponents>
+        <Component class="javax.swing.JTextArea" name="Comments_txt">
+          <Properties>
+            <Property name="columns" type="int" value="20"/>
+            <Property name="rows" type="int" value="5"/>
+          </Properties>
+        </Component>
+      </SubComponents>
+    </Container>
+    <Component class="javax.swing.JButton" name="Save_btn">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Guardar"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="Cancel_btn">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Cancelar"/>
+      </Properties>
+    </Component>
+  </SubComponents>
+</Form>
