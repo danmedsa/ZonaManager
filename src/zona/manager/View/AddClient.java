@@ -5,18 +5,54 @@
  */
 package zona.manager.View;
 
+import com.amazonaws.AmazonClientException;
+import com.amazonaws.auth.AWSCredentials;
+import com.amazonaws.auth.profile.ProfileCredentialsProvider;
+import com.amazonaws.regions.Region;
+import com.amazonaws.regions.Regions;
+import com.amazonaws.services.dynamodbv2.AmazonDynamoDBClient;
+import com.amazonaws.services.dynamodbv2.model.AttributeValue;
+import com.amazonaws.services.dynamodbv2.model.PutItemRequest;
+import com.amazonaws.services.dynamodbv2.model.PutItemResult;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
+import static zona.manager.View.AddClient.dynamoDB;
+
+
 /**
  *
  * @author DanielMedina
  */
 public class AddClient extends javax.swing.JFrame {
 
+    static AmazonDynamoDBClient dynamoDB;
+
+
+    
     /**
      * Creates new form AddClient
      */
     public AddClient() {
         initComponents();
-    }
+        
+        
+        //init AWS DynamoDB
+        AWSCredentials credentials = null;
+        try {
+            credentials = new ProfileCredentialsProvider().getCredentials();
+        } catch (Exception e) {
+            throw new AmazonClientException(
+                    "Cannot load the credentials from the credential profiles file. " +
+                    "Please make sure that your credentials file is at the correct " +
+                    "location (~/.aws/credentials), and is in valid format.",
+                    e);
+        }
+        dynamoDB = new AmazonDynamoDBClient(credentials);
+        Region usWest2 = Region.getRegion(Regions.US_WEST_2);
+        dynamoDB.setRegion(usWest2);
+        }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -60,8 +96,8 @@ public class AddClient extends javax.swing.JFrame {
         Comments_txt = new javax.swing.JTextArea();
         Save_btn = new javax.swing.JButton();
         Cancel_btn = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox();
+        Deliverer_lbl = new javax.swing.JLabel();
+        Deliverer_txt = new javax.swing.JComboBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -116,9 +152,9 @@ public class AddClient extends javax.swing.JFrame {
 
         Cancel_btn.setText("Cancelar");
 
-        jLabel1.setText("Repartidor:");
+        Deliverer_lbl.setText("Repartidor:");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        Deliverer_txt.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -132,9 +168,9 @@ public class AddClient extends javax.swing.JFrame {
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addGap(21, 21, 21)
-                .addComponent(jLabel1)
+                .addComponent(Deliverer_lbl)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(Deliverer_txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -231,8 +267,8 @@ public class AddClient extends javax.swing.JFrame {
                     .addComponent(Description_SP, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Deliverer_lbl)
+                    .addComponent(Deliverer_txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -266,9 +302,42 @@ public class AddClient extends javax.swing.JFrame {
 
     private void Save_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Save_btnActionPerformed
         // TODO add your handling code here:
-        
+        // Add an item
+            Map<String, AttributeValue> item = newItem(Name_txt.getText(), 
+                   Breakfast_txt.getText(), Cellphone_txt.getText(), Comments_txt.getText(), Deliverer_txt.getSelectedItem().toString(),
+                   Description_txt.getText(), Dinner_txt.getText(),email_txt.getText(),Interior_txt.getText(),
+                   Lunch_txt.getText(), Number_txt.getText(), JoinDate_txt.getDateFormatString(), Street_txt.getText(),
+                   Phone_txt.getText());
+            PutItemRequest putItemRequest = new PutItemRequest("Clients", item);
+            PutItemResult putItemResult = dynamoDB.putItem(putItemRequest);
+            System.out.println("Result: " + putItemResult);
     }//GEN-LAST:event_Save_btnActionPerformed
 
+    private Map<String, AttributeValue> newItem(String name, String breakfast, String cellphone, String comments, String deliverer, String description, String dinner, String email, String interior, String lunch, String number, String joindate, String street, String phone) {
+    Map<String, AttributeValue> item = new HashMap<String, AttributeValue>();
+        Date date = new Date();
+        SimpleDateFormat ft = new SimpleDateFormat ("yyyyMMddhhmmssS");
+        System.out.println(ft.format(date));
+        item.put("id", new AttributeValue().withN(ft.format(date)));
+        item.put("Name", new AttributeValue(name));
+        item.put("Breakfast", new AttributeValue(breakfast));
+        item.put("Cellphone", new AttributeValue(cellphone));
+        item.put("Comments", new AttributeValue(comments));
+        item.put("Deliverer", new AttributeValue(deliverer));
+        item.put("Description", new AttributeValue(description));
+        item.put("Dinner", new AttributeValue(dinner));
+        item.put("Email", new AttributeValue(email));
+        item.put("Interior", new AttributeValue(interior));
+        item.put("Lunch", new AttributeValue(lunch));
+        item.put("Number", new AttributeValue(number));
+        item.put("JoinDate", new AttributeValue(joindate.toString()));
+        item.put("Street", new AttributeValue(street));
+        item.put("Telephone", new AttributeValue(phone));
+        
+        return item;
+    }
+    
+    
     /**
      * @param args the command line arguments
      */
@@ -304,6 +373,7 @@ public class AddClient extends javax.swing.JFrame {
         });
     }
 
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Breakfast_lbl;
     private javax.swing.JTextField Breakfast_txt;
@@ -313,6 +383,8 @@ public class AddClient extends javax.swing.JFrame {
     private javax.swing.JScrollPane Comments_SP;
     private javax.swing.JLabel Comments_lbl;
     private javax.swing.JTextArea Comments_txt;
+    private javax.swing.JLabel Deliverer_lbl;
+    private javax.swing.JComboBox Deliverer_txt;
     private javax.swing.JScrollPane Description_SP;
     private javax.swing.JLabel Description_lbl;
     private javax.swing.JTextArea Description_txt;
@@ -338,7 +410,7 @@ public class AddClient extends javax.swing.JFrame {
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JLabel email_lbl;
     private javax.swing.JTextField email_txt;
-    private javax.swing.JComboBox jComboBox1;
-    private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
+
+    
 }
