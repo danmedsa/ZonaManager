@@ -151,6 +151,11 @@ public class AddClient extends javax.swing.JFrame {
         });
 
         Cancel_btn.setText("Cancelar");
+        Cancel_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Cancel_btnActionPerformed(evt);
+            }
+        });
 
         Deliverer_lbl.setText("Repartidor:");
 
@@ -303,41 +308,19 @@ public class AddClient extends javax.swing.JFrame {
     private void Save_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Save_btnActionPerformed
         // TODO add your handling code here:
         // Add an item
-            Map<String, AttributeValue> item = newItem(Name_txt.getText(), 
-                   Breakfast_txt.getText(), Cellphone_txt.getText(), Comments_txt.getText(), Deliverer_txt.getSelectedItem().toString(),
-                   Description_txt.getText(), Dinner_txt.getText(),email_txt.getText(),Interior_txt.getText(),
-                   Lunch_txt.getText(), Number_txt.getText(), JoinDate_txt.getDateFormatString(), Street_txt.getText(),
-                   Phone_txt.getText());
-            PutItemRequest putItemRequest = new PutItemRequest("Clients", item);
-            PutItemResult putItemResult = dynamoDB.putItem(putItemRequest);
-            System.out.println("Result: " + putItemResult);
+        new AWSConnection_PopUp(Name_txt.getText(), 
+                Breakfast_txt.getText(), Cellphone_txt.getText(), Comments_txt.getText(), Deliverer_txt.getSelectedItem().toString(),
+                Description_txt.getText(), Dinner_txt.getText(),email_txt.getText(),Interior_txt.getText(),
+                Lunch_txt.getText(), Number_txt.getText(), JoinDate_txt.getDateFormatString(), Street_txt.getText(),
+                Phone_txt.getText()).setVisible(true);
     }//GEN-LAST:event_Save_btnActionPerformed
 
-    private Map<String, AttributeValue> newItem(String name, String breakfast, String cellphone, String comments, String deliverer, String description, String dinner, String email, String interior, String lunch, String number, String joindate, String street, String phone) {
-    Map<String, AttributeValue> item = new HashMap<String, AttributeValue>();
-        Date date = new Date();
-        SimpleDateFormat ft = new SimpleDateFormat ("yyyyMMddhhmmssS");
-        System.out.println(ft.format(date));
-        item.put("id", new AttributeValue().withN(ft.format(date)));
-        item.put("Name", new AttributeValue(name));
-        item.put("Breakfast", new AttributeValue(breakfast));
-        item.put("Cellphone", new AttributeValue(cellphone));
-        item.put("Comments", new AttributeValue(comments));
-        item.put("Deliverer", new AttributeValue(deliverer));
-        item.put("Description", new AttributeValue(description));
-        item.put("Dinner", new AttributeValue(dinner));
-        item.put("Email", new AttributeValue(email));
-        item.put("Interior", new AttributeValue(interior));
-        item.put("Lunch", new AttributeValue(lunch));
-        item.put("Number", new AttributeValue(number));
-        item.put("JoinDate", new AttributeValue(joindate.toString()));
-        item.put("Street", new AttributeValue(street));
-        item.put("Telephone", new AttributeValue(phone));
+    private void Cancel_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Cancel_btnActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+    }//GEN-LAST:event_Cancel_btnActionPerformed
+
         
-        return item;
-    }
-    
-    
     /**
      * @param args the command line arguments
      */
