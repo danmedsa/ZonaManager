@@ -5,9 +5,19 @@
  */
 package zona.manager.View;
 
+import com.amazonaws.AmazonClientException;
+import com.amazonaws.auth.AWSCredentials;
+import com.amazonaws.auth.profile.ProfileCredentialsProvider;
+import com.amazonaws.regions.Region;
+import com.amazonaws.regions.Regions;
+import com.amazonaws.services.dynamodbv2.AmazonDynamoDBClient;
+import com.amazonaws.services.dynamodbv2.model.AttributeValue;
+import com.amazonaws.services.dynamodbv2.model.ScanRequest;
+import com.amazonaws.services.dynamodbv2.model.ScanResult;
 import java.awt.Dimension;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import javax.swing.DefaultListModel;
 import javax.swing.JList;
 import javax.swing.JScrollPane;
@@ -21,19 +31,49 @@ import zona.manager.Model.Client;
  */
 public class ManageClientsGUI extends javax.swing.JFrame {
 
+        static AmazonDynamoDBClient dynamoDB;
+    
     /**
      * Creates new form ManageClientsGUI
      */
-    DefaultListModel clients;
-    public ManageClientsGUI() {        
+    DefaultListModel clientsList;
+    public ManageClientsGUI() {     
         
-        clients = new DefaultListModel();
+        //AWS DynamoDB Connection
+        AWSCredentials credentials = null;
+        try {
+            credentials = new ProfileCredentialsProvider().getCredentials();
+        } catch (Exception e) {
+            throw new AmazonClientException(
+                    "Cannot load the credentials from the credential profiles file. " +
+                    "Please make sure that your credentials file is at the correct " +
+                    "location (~/.aws/credentials), and is in valid format.",
+                    e);
+        }
+        dynamoDB = new AmazonDynamoDBClient(credentials);
+        Region usWest2 = Region.getRegion(Regions.US_WEST_2);
+        dynamoDB.setRegion(usWest2);
+
+        //Retrieve Clients
+
+        ScanRequest scanRequest = new ScanRequest()
+            .withTableName("Clients");
+
+        clientsList = new DefaultListModel();
+        
+        ScanResult result = dynamoDB.scan(scanRequest);
+        
+        for (Map<String, AttributeValue> item : result.getItems()){
+            clientsList.addElement(item.get("Name").getS());
+        }
+        
+        
         //TODO Firebase Request
-        clients.addElement("Monica");
+        
                
         initComponents();
 
-        clientList.setModel(clients);
+        clientList.setModel(clientsList);
         
     }
 
@@ -55,7 +95,7 @@ public class ManageClientsGUI extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        clientList.setModel(clients);
+        clientList.setModel(clientsList);
         ClientScrollPane.setViewportView(clientList);
 
         cancel_btn.setText("Cancelar");
