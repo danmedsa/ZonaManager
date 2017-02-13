@@ -14,16 +14,10 @@ import com.amazonaws.services.dynamodbv2.AmazonDynamoDBClient;
 import com.amazonaws.services.dynamodbv2.model.AttributeValue;
 import com.amazonaws.services.dynamodbv2.model.ScanRequest;
 import com.amazonaws.services.dynamodbv2.model.ScanResult;
-import java.awt.Dimension;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Map;
 import javax.swing.DefaultListModel;
+import javax.swing.DefaultListSelectionModel;
 import javax.swing.JList;
-import javax.swing.JScrollPane;
-import javax.swing.ListModel;
-import javax.swing.ListSelectionModel;
-import zona.manager.Model.Client;
 
 /**
  *
@@ -31,48 +25,19 @@ import zona.manager.Model.Client;
  */
 public class ManageClientsGUI extends javax.swing.JFrame {
 
-        static AmazonDynamoDBClient dynamoDB;
+    static AmazonDynamoDBClient dynamoDB;
+    DefaultListModel clientsList;
     
     /**
      * Creates new form ManageClientsGUI
      */
-    DefaultListModel clientsList;
+    
     public ManageClientsGUI() {     
+        // Get AWS DynamoDB Data
+        fill_list();
         
-        //AWS DynamoDB Connection
-        AWSCredentials credentials = null;
-        try {
-            credentials = new ProfileCredentialsProvider().getCredentials();
-        } catch (Exception e) {
-            throw new AmazonClientException(
-                    "Cannot load the credentials from the credential profiles file. " +
-                    "Please make sure that your credentials file is at the correct " +
-                    "location (~/.aws/credentials), and is in valid format.",
-                    e);
-        }
-        dynamoDB = new AmazonDynamoDBClient(credentials);
-        Region usWest2 = Region.getRegion(Regions.US_WEST_2);
-        dynamoDB.setRegion(usWest2);
-
-        //Retrieve Clients
-
-        ScanRequest scanRequest = new ScanRequest()
-            .withTableName("Clients");
-
-        clientsList = new DefaultListModel();
-        
-        ScanResult result = dynamoDB.scan(scanRequest);
-        
-        for (Map<String, AttributeValue> item : result.getItems()){
-            clientsList.addElement(item.get("Name").getS());
-        }
-        
-        
-        //TODO Firebase Request
-        
-               
         initComponents();
-
+        // Set values to list
         clientList.setModel(clientsList);
         
     }
@@ -95,6 +60,8 @@ public class ManageClientsGUI extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        clientList.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
+        clientList.setSelectionModel(new MySelectionModel(clientList,1));
         clientList.setModel(clientsList);
         ClientScrollPane.setViewportView(clientList);
 
@@ -162,8 +129,36 @@ public class ManageClientsGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_add_btnActionPerformed
     
     
-    void fill_list(){
+    final void fill_list(){
+        //AWS DynamoDB Connection
+        AWSCredentials credentials = null;
+        try {
+            credentials = new ProfileCredentialsProvider().getCredentials();
+        } catch (Exception e) {
+            throw new AmazonClientException(
+                    "Cannot load the credentials from the credential profiles file. " +
+                    "Please make sure that your credentials file is at the correct " +
+                    "location (~/.aws/credentials), and is in valid format.",
+                    e);
+        }
+        dynamoDB = new AmazonDynamoDBClient(credentials);
+        Region usWest2 = Region.getRegion(Regions.US_WEST_2);
+        dynamoDB.setRegion(usWest2);
+
+        //Retrieve Clients
+
+        ScanRequest scanRequest = new ScanRequest()
+            .withTableName("Clients");
+
+        clientsList = new DefaultListModel();
         
+        // Send Request 
+        ScanResult result = dynamoDB.scan(scanRequest);
+        
+        //Retrieve Values
+        for (Map<String, AttributeValue> item : result.getItems()){
+            clientsList.addElement(item.get("Name").getS());
+        }  
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -174,4 +169,48 @@ public class ManageClientsGUI extends javax.swing.JFrame {
     private javax.swing.JButton edit_btn;
     private javax.swing.JButton remove_btn;
     // End of variables declaration//GEN-END:variables
+}
+
+
+class MySelectionModel extends DefaultListSelectionModel
+{
+    private JList list;
+    private int maxCount;
+
+    MySelectionModel(JList list,int maxCount)
+    {
+        this.list = list;
+
+        this.maxCount = maxCount;
+    }
+
+    @Override
+    public void setSelectionInterval(int index0, int index1)
+    {
+        if (index1 - index0 >= maxCount)
+        {
+            index1 = index0 + maxCount - 1;
+        }else 
+            if(index0 - index1 >= maxCount)
+            {
+            index0 = index1 - maxCount + 1;
+        }
+        super.setSelectionInterval(index0, index1);
+    }
+
+    @Override
+    public void addSelectionInterval(int index0, int index1)
+    {
+        int selectionLength = list.getSelectedIndices().length;
+        if (selectionLength >= maxCount)
+            return;
+
+        if (index1 - index0 >= maxCount - selectionLength)
+        {
+            index1 = index0 + maxCount - 1 - selectionLength;
+        }
+        if (index1 < index0)
+            return;
+        super.addSelectionInterval(index0, index1);
+    }
 }
