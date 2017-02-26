@@ -82,6 +82,11 @@ public class ManageClientsGUI extends javax.swing.JFrame {
         });
 
         edit_btn.setText("Editar");
+        edit_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                edit_btnActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -127,6 +132,11 @@ public class ManageClientsGUI extends javax.swing.JFrame {
         // TODO add your handling code here:
         new AddClient().setVisible(true);
     }//GEN-LAST:event_add_btnActionPerformed
+
+    private void edit_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edit_btnActionPerformed
+        // TODO add your handling code here:
+        new EditClient(clientList.getSelectedValue().toString()).setVisible(true);
+    }//GEN-LAST:event_edit_btnActionPerformed
     
     
     final void fill_list(){
@@ -146,7 +156,6 @@ public class ManageClientsGUI extends javax.swing.JFrame {
         dynamoDB.setRegion(usWest2);
 
         //Retrieve Clients
-
         ScanRequest scanRequest = new ScanRequest()
             .withTableName("Clients");
 

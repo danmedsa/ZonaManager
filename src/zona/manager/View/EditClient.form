@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
 <Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
-  <NonVisualComponents>
-    <Component class="javax.swing.ButtonGroup" name="buttonGroup1">
-    </Component>
-  </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
   </Properties>
@@ -27,87 +23,81 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="1" attributes="0">
-              <EmptySpace max="32767" attributes="0"/>
-              <Component id="Save_btn" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Component id="Cancel_btn" min="-2" max="-2" attributes="0"/>
+          <Group type="102" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-          </Group>
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
-              <Component id="Deliverer_lbl" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="Deliverer_txt" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="32767" attributes="0"/>
-          </Group>
-          <Group type="102" alignment="1" attributes="0">
-              <Group type="103" groupAlignment="1" attributes="0">
-                  <Group type="102" attributes="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="1" attributes="0">
                       <Group type="103" groupAlignment="1" attributes="0">
+                          <Component id="Description_lbl" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Component id="Neighborhood_lbl" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Component id="Street_lbl" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Component id="email_lbl" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Component id="Phone_lbl" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Component id="Name_lbl" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Component id="Deliverer_lbl" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Component id="JoinDate_lbl" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Component id="Lunch_lbl" alignment="1" min="-2" max="-2" attributes="0"/>
                           <Component id="Comments_lbl" min="-2" max="-2" attributes="0"/>
-                          <Component id="Lunch_lbl" min="-2" max="-2" attributes="0"/>
-                          <Component id="JoinDate_lbl" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
-                              <Component id="JoinDate_txt" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="Name_txt" alignment="0" max="32767" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="Phone_txt" max="32767" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="Cellphone_lbl" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="Cellphone_txt" min="-2" pref="137" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Component id="email_txt" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="Street_txt" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="Neighborhood_txt" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="Description_SP" alignment="0" max="32767" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
+                                      <Component id="Number_lbl" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="Number_txt" min="-2" pref="69" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="Interior_lbl" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="Interior_txt" min="-2" pref="71" max="-2" attributes="0"/>
+                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                  </Group>
+                              </Group>
                           </Group>
-                          <Group type="102" attributes="0">
-                              <Component id="Lunch_txt" min="-2" pref="41" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
-                              <Component id="Breakfast_lbl" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="Breakfast_txt" min="-2" pref="47" max="-2" attributes="0"/>
-                              <EmptySpace pref="36" max="32767" attributes="0"/>
-                              <Component id="Dinner_lbl" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="Dinner_txt" min="-2" pref="44" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="JoinDate_txt" min="-2" max="-2" attributes="0"/>
+                                  <Component id="Deliverer_txt" min="-2" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="Lunch_txt" min="-2" pref="41" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+                                      <Component id="Breakfast_lbl" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="Breakfast_txt" min="-2" pref="47" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
+                                      <Component id="Dinner_lbl" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="Dinner_txt" min="-2" pref="44" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Component id="Comments_SP" alignment="0" max="32767" attributes="0"/>
+                              </Group>
                           </Group>
-                          <Component id="Comments_SP" max="32767" attributes="0"/>
                       </Group>
+                      <EmptySpace min="-2" pref="75" max="-2" attributes="0"/>
                   </Group>
-                  <Group type="102" attributes="0">
-                      <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="Description_lbl" min="-2" max="-2" attributes="0"/>
-                          <Component id="Neighborhood_lbl" min="-2" max="-2" attributes="0"/>
-                          <Component id="Street_lbl" min="-2" max="-2" attributes="0"/>
-                          <Component id="email_lbl" min="-2" max="-2" attributes="0"/>
-                          <Component id="Phone_lbl" min="-2" max="-2" attributes="0"/>
-                          <Component id="Name_lbl" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="Name_txt" max="32767" attributes="0"/>
-                          <Group type="102" attributes="0">
-                              <Component id="Phone_txt" max="32767" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="Cellphone_lbl" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="Cellphone_txt" min="-2" pref="137" max="-2" attributes="0"/>
-                          </Group>
-                          <Component id="email_txt" max="32767" attributes="0"/>
-                          <Component id="Street_txt" max="32767" attributes="0"/>
-                          <Component id="Neighborhood_txt" alignment="0" max="32767" attributes="0"/>
-                          <Component id="Description_SP" max="32767" attributes="0"/>
-                          <Group type="102" attributes="0">
-                              <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
-                              <Component id="Number_lbl" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="Number_txt" min="-2" pref="69" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="Interior_lbl" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="Interior_txt" min="-2" pref="71" max="-2" attributes="0"/>
-                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                          </Group>
-                      </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      <Component id="Save_btn" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="Cancel_btn" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace min="-2" pref="76" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -116,7 +106,7 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" attributes="0">
-                  <Group type="102" attributes="0">
+                  <Group type="102" alignment="1" attributes="0">
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="Name_lbl" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="Name_txt" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -131,7 +121,7 @@
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="email_lbl" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <Component id="email_txt" min="-2" max="-2" attributes="0"/>
+                  <Component id="email_txt" alignment="1" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -152,42 +142,37 @@
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="Description_lbl" min="-2" max="-2" attributes="0"/>
-                  <Component id="Description_SP" min="-2" pref="58" max="-2" attributes="0"/>
+                  <Component id="Description_lbl" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="Description_SP" alignment="0" min="-2" pref="58" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="Deliverer_lbl" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="Deliverer_txt" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
-                      <Component id="JoinDate_lbl" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <Component id="JoinDate_txt" alignment="0" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Component id="JoinDate_lbl" max="32767" attributes="0"/>
+                  <Component id="JoinDate_txt" max="32767" attributes="0"/>
               </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="Dinner_lbl" alignment="1" min="-2" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="Lunch_lbl" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="Lunch_txt" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="Breakfast_lbl" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="Breakfast_txt" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="Dinner_txt" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
+              <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="Lunch_lbl" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="Lunch_txt" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="Breakfast_lbl" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="Breakfast_txt" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="Dinner_lbl" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="Dinner_txt" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="Comments_lbl" min="-2" max="-2" attributes="0"/>
                   <Component id="Comments_SP" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="Cancel_btn" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="Save_btn" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="Cancel_btn" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
           </Group>
       </Group>
